@@ -1,6 +1,22 @@
 # ReFICR
-## Dependency
+## Commands
+
+### Dependency
 `pip install -r requirements.txt`
+
+### Docker
+
+
+sudo docker build -t mathiaspm/reficr -f pytorch.Dockerfile .
+
+docker pull mathiaspm/p9-reficr:local
+
+docker run --rm -it \
+  --gpus all \
+  --ipc=host \
+  --ulimit memlock=-1 --ulimit stack=67108864 \
+  -p 5000:5000 \
+  mathiaspm/p9-reficr:local
 
 ## Training
 ### Data
