@@ -481,7 +481,7 @@ def main():
                             "train/global_step": state.global_step,
                         })
 
-        trainer.add_callback(WandbCustomCallback())
+        #trainer.add_callback(WandbCustomCallback())
 
         # Copied from below & added loss_emb/loss_gen
         # https://github.com/huggingface/transformers/blob/cc3e4781854a52cf090ffde28d884a527dab6708/src/transformers/trainer.py#L2699
