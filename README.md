@@ -1,7 +1,16 @@
 # ReFICR
 ## Commands
 
-### Dependency
+### srun Commands
+srun --mem=24G --cpus-per-task=15 --gres=gpu:1 --time=01:00:00 singularity exec --env HF_HOME=~/.cache/huggingface --nv p9-reficr_latest.sif bash run.sh
+
+srun --mem=24G --cpus-per-task=15 --gres=gpu:1 --time=01:00:00 \
+singularity exec \
+--env HF_HOME=~/.cache/huggingface \
+--env WANDB_DISABLED=true \
+--nv p9-reficr_latest.sif bash run.sh
+
+## Dependency
 `pip install -r requirements.txt`
 
 ### Docker
