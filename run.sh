@@ -1,10 +1,4 @@
-SHARED_PROJECT_PATH="/ceph/project/P9-ReFICR"
-
-# Set HF_HOME to a shared cache within project
-export HF_HOME="${SHARED_PROJECT_PATH}/.cache/huggingface"
-
-
-mkdir -p $HF_HOME
+export HF_HOME=~/.cache/huggingface
 
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port 25900\
  -m training.run \
