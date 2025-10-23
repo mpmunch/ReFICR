@@ -1,3 +1,11 @@
+SHARED_PROJECT_PATH="/ceph/project/P9-ReFICR"
+
+# Set HF_HOME to a shared cache within project
+export HF_HOME="${SHARED_PROJECT_PATH}/.cache/huggingface"
+
+
+mkdir -p $HF_HOME
+
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port 25900\
  -m training.run \
  --output_dir model_weights/ReFICR_qlora\
@@ -25,4 +33,5 @@ CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port 25900\
  --save_steps 500 \
  --bf16 True \
  --qlora True \
+ --report_to none \
  --in_batch_neg False
