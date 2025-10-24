@@ -1,7 +1,7 @@
 export HF_HOME=./.cache/huggingface
 export PYTORCH_CUDA_ALLOC_CONF="max_split_size_mb:128"
 
-CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port 25900\
+torchrun --nproc_per_node 2 --master_port 25900\
  -m training.run \
  --output_dir model_weights/ReFICR_qlora\
  --model_name_or_path GritLM/GritLM-7B \
@@ -10,7 +10,7 @@ CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port 25900\
  --num_train_epochs 1 \
  --warmup_ratio 0.03 \
  --per_device_train_batch_size 1 \
- --gradient_accumulation_steps 2 \
+ --gradient_accumulation_steps 1 \
  --dataloader_drop_last True \
  --normalized True \
  --temperature 0.02 \
