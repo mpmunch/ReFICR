@@ -1,4 +1,4 @@
-export HF_HOME=~/.cache/huggingface
+export HF_HOME=./.cache/huggingface
 export PYTORCH_CUDA_ALLOC_CONF="max_split_size_mb:128"
 
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port 25900\
@@ -24,7 +24,7 @@ CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port 25900\
  --attn_implementation sdpa \
  --pooling_method mean \
  --gradient_checkpointing True \
- --save_strategy "epoch" \
+ --save_strategy "steps" \
  --save_steps 500 \
  --bf16 True \
  --qlora True \
