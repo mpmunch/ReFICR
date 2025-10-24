@@ -1,4 +1,5 @@
 export HF_HOME=~/.cache/huggingface
+export PYTORCH_CUDA_ALLOC_CONF="max_split_size_mb:128"
 
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node 1 --master_port 25900\
  -m training.run \
