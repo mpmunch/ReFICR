@@ -1,7 +1,7 @@
 export HF_HOME=./.cache/huggingface
 export PYTORCH_CUDA_ALLOC_CONF="max_split_size_mb:128"
 
-torchrun --nproc_per_node 2 --master_port 25900\
+torchrun --nproc_per_node 4 --master_port 25900\
  -m training.run \
  --output_dir model_weights/ReFICR_qlora\
  --model_name_or_path GritLM/GritLM-7B \
