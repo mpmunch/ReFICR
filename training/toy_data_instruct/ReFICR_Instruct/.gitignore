@@ -1,2 +1,0 @@
-#Ignore large JSONL files for training
-*.jsonl
